@@ -21,6 +21,7 @@ const App = React.createClass({
       <select onChange={(e) => this.props.categorize(e.target.value)}>
         <option>Select a category</option>
         <option value="region">Region</option>
+        <option value="status">Status</option>
       </select>
     </div>;
   }
