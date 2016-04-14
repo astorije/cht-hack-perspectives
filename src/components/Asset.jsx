@@ -18,8 +18,10 @@ var Asset = React.createClass({
     var connectDragSource = this.props.connectDragSource;
 
     return connectDragSource(
-      <div className={"asset " + this.props.status}>
-        {this.props.id}
+      <div className="tooltipped tooltipped-s border p-2 mb-2 mr-2 left" aria-label={this.props.id}>
+        <div className={"asset " + this.props.status}>
+          {this.props.id}
+        </div>
       </div>
     );
   }
