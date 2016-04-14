@@ -9,7 +9,7 @@ const App = React.createClass({
       <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
       {this.props.buckets.map((bucket, i) =>
         <div key={i} onClick={() => this.props.drag(i)}>
-          <Bucket name={bucket.get('name')} assets={bucket.get('assets')} />
+          <Bucket name={bucket.get('name')} assets={bucket.get('assets')} nameBucket={(n) => this.props.nameBucket(i, n)}/>
         </div>
       )}
       Categorize by:

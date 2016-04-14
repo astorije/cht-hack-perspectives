@@ -40,6 +40,10 @@ function drag(state, bucketIndex) {
   );
 }
 
+function nameBucket(state, bucketIndex, bucketName) {
+  return state.setIn(['buckets', bucketIndex, 'name'], bucketName);
+}
+
 export default function(state = new Map(), action) {
   switch (action.type) {
   case 'SET_STATE':
@@ -48,6 +52,8 @@ export default function(state = new Map(), action) {
     return categorize(state, action.category);
   case 'DRAG':
     return drag(state, action.bucketIndex);
+  case 'NAMEBUCKET':
+    return nameBucket(state, action.bucketIndex, action.bucketName);
   }
   return state;
 }

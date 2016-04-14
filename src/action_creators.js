@@ -18,3 +18,11 @@ export function drag(bucketIndex) {
     bucketIndex
   };
 }
+
+export function nameBucket(bucketIndex, bucketName){
+  return {
+    type: 'NAMEBUCKET',
+    bucketIndex,
+    bucketName
+  }
+}

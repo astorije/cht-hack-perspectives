@@ -1,4 +1,7 @@
 
+span.fa {
+  cursor: pointer;
+}
 
 .bucket {
   display: flex;
