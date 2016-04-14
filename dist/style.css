@@ -1,6 +1,9 @@
-.bucket {
+.bucketAssets {
   display: flex;
   flex-wrap: wrap;
+}
+
+.bucket {
   padding: 10px;
   background-color: #eee;
   margin: 10px;
@@ -45,4 +48,21 @@
 .clickable,
 span.fa {
   cursor: pointer;
+}
+
+.inlineDiv{
+  width: 500px;
+}
+
+.innerDiv{
+  float: left;
+}
+
+.innerDiv h3{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.delete{
+  margin: 5px;
 }
