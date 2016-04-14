@@ -28,8 +28,12 @@ const App = React.createClass({
       Categorize by:
       <select onChange={(e) => this.props.categorize(e.target.value)}>
         <option>Select a category</option>
-        <option value="region">Region</option>
-        <option value="status">Status</option>
+        <option value="function">Function</option>
+        <option value="type">Instance Type</option>
+        <option value="zone">Zone name</option>
+        <option value="state">State</option>
+        <option value="status">Active / Inactive</option>
+        <option value="owner">Owner</option>
       </select>
     </div>;
   }
