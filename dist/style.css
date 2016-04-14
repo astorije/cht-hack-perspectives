@@ -1,0 +1,15 @@
+
+
+.bucket {
+  display: flex;
+  padding: 10px;
+  background-color: #eee;
+  margin: 10px;
+}
+
+.asset {
+  width: 64px;
+  height: 64px;
+  background-color: #ddd;
+  margin: 10px;
+}
