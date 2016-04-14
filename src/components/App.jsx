@@ -11,7 +11,14 @@ const App = React.createClass({
       <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
       {this.props.buckets.map((bucket, i) =>
         <div key={i}>
-          <Bucket index={i} name={bucket.get('name')} assets={bucket.get('assets')} nameBucket={(n) => this.props.nameBucket(i, n)} onDrop={(item) => this.props.drag(item, i)} />
+          <Bucket
+            index={i}
+            name={bucket.get('name')}
+            assets={bucket.get('assets')}
+            nameBucket={(n) => this.props.nameBucket(i, n)}
+            onDrop={(item) => this.props.drag(item, i)}
+            deleteBucket={() => this.props.deleteBucket(i)}
+          />
         </div>
       )}
       <div className="shadowBucket">

@@ -94,8 +94,14 @@ var Bucket = React.createClass({
       </div>;
     }
 
+    var deleteButton;
+    if (this.props.deleteBucket) {
+      deleteButton = <i className="fa fa-trash-o clickable" onClick={(i) => this.props.deleteBucket(i)}></i>;
+    }
+
     return connectDropTarget(
       <div className="bucket">
+        {deleteButton}
         {text}
         {this.getAssets().map(asset =>
           <Asset key={asset.id} id={asset.id} status={asset.status} />

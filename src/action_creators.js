@@ -27,3 +27,10 @@ export function nameBucket(bucketIndex, bucketName){
     bucketName
   }
 }
+
+export function deleteBucket(bucketIndex){
+  return {
+    type: 'DELETEBUCKET',
+    bucketIndex
+  }
+}
