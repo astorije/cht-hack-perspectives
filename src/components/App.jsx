@@ -1,14 +1,9 @@
 import React from 'react';
-import {List, Map} from 'immutable';
 import Bucket from './Bucket';
 import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
 
 const App = React.createClass({
-  handleChange: function (e) {
-    console.log(e.target.value);
-
-  },
   render: function () {
     return <div>
       <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
