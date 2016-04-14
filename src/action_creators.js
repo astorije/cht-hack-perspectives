@@ -34,3 +34,16 @@ export function deleteBucket(bucketIndex){
     bucketIndex
   }
 }
+
+export function selectAsset(asset) {
+  return {
+    type: 'SELECTASSET',
+    asset
+  };
+}
+
+export function unselectAsset(asset) {
+  return {
+    type: 'UNSELECTASSET'
+  };
+}

@@ -115,7 +115,17 @@ var Bucket = React.createClass({
         </div>
         <div className="bucketAssets">
           {this.getAssets().map(asset =>
-            <Asset key={asset.id} id={asset.id} status={asset.status} />
+            <Asset
+              key={asset.id}
+              id={asset.id}
+              status={asset.status}
+              state={asset.state}
+              type={asset.type}
+              zone={asset.zone}
+              function={asset.function}
+              owner={asset.owner}
+              selectAsset={this.props.selectAsset}
+              />
           )}
           {shadowAsset}
         </div>

@@ -54,11 +54,18 @@ function nameBucket(state, bucketIndex, bucketName) {
 }
 
 function deleteBucket(state, bucketIndex) {
-  debugger;
   return state.updateIn(
     ['unallocatedAssets', 'assets'],
     assets => assets.concat(state.getIn(['buckets', bucketIndex, 'assets'])
   )).deleteIn(['buckets', bucketIndex]);
+}
+
+function selectAsset(state, asset) {
+  return state.set('selectedAsset', asset);
+}
+
+function unselectAsset(state) {
+  return state.set('selectedAsset', null);
 }
 
 export default function(state = new Map(), action) {
@@ -73,6 +80,10 @@ export default function(state = new Map(), action) {
     return nameBucket(state, action.bucketIndex, action.bucketName);
   case 'DELETEBUCKET':
     return deleteBucket(state, action.bucketIndex);
+  case 'SELECTASSET':
+    return selectAsset(state, action.asset);
+  case 'UNSELECTASSET':
+    return unselectAsset(state);
   }
   return state;
 }

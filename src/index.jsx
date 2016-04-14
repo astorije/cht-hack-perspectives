@@ -43,7 +43,8 @@ store.dispatch(setState({
   unallocatedAssets: {
     assets: new OrderedSet(instances)
   },
-  buckets: []
+  buckets: [],
+  selectedAsset: null
 }));
 
 ReactDOM.render(

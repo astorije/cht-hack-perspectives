@@ -71,3 +71,33 @@ span.fa {
 .delete{
   margin: 5px;
 }
+
+.description {
+  width: 50%;
+  height: 200px;
+  position: fixed;
+  bottom: 20px;
+  left: 25%;
+  margin: auto;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  background-color: white;
+  padding: 20px;
+  font-size: 1.2em;
+  text-align: center;
+  transition: opacity .4s, height .4s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.description i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #ccc;
+}
+
+.description.isHidden {
+  opacity: 0;
+  height: 0;
+}
