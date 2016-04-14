@@ -20,7 +20,7 @@ var Asset = React.createClass({
     return connectDragSource(
       <div className="tooltipped tooltipped-s border p-2 mb-2 mr-2 left" aria-label={this.props.id}>
         <div className={"asset " + this.props.status}>
-          {this.props.id}
+
         </div>
       </div>
     );

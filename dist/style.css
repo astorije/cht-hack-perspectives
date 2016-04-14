@@ -1,5 +1,6 @@
 .bucket {
   display: flex;
+  flex-wrap: wrap;
   padding: 10px;
   background-color: #eee;
   margin: 10px;
@@ -8,13 +9,12 @@
 }
 
 .asset {
-  width: 64px;
-  height: 64px;
+  width: 24px;
+  height: 24px;
   background-color: #ddd;
-  margin: 10px;
-  line-height: 64px;
+  margin: 5px;
   text-align: center;
-  border-radius: 32px;
+  border-radius: 12px;
 }
 
 .inactive {
@@ -27,12 +27,13 @@
 
 .shadow {
   background-color: transparent;
-  border: 3px dashed #ccc;
+  border: 1px solid #ccc;
   color: #ccc;
+  line-height: 24px;
 }
 
 .isOver {
-  border: 3px dashed green;
+  border: 1px solid green;
   color: green;
 }
 
