@@ -23,12 +23,31 @@ function categorize(state, category) {
   );
 }
 
+function drag(state, bucketIndex) {
+  var unallocatedAssets = state.getIn(['unallocatedAssets', 'assets']);
+
+  if (unallocatedAssets.isEmpty()) {
+    return state;
+  }
+
+  var movableAsset = state.getIn(['unallocatedAssets', 'assets']).last();
+  return state.updateIn(
+    ['unallocatedAssets', 'assets'],
+    assets => assets.delete(movableAsset)
+  ).updateIn(
+    ['buckets', bucketIndex, 'assets'],
+    assets => assets.add(movableAsset)
+  );
+}
+
 export default function(state = new Map(), action) {
   switch (action.type) {
   case 'SET_STATE':
     return setState(state, action.state);
   case 'CATEGORIZE':
     return categorize(state, action.category);
+  case 'DRAG':
+    return drag(state, action.bucketIndex);
   }
   return state;
 }

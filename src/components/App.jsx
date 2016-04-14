@@ -7,8 +7,8 @@ const App = React.createClass({
   render: function () {
     return <div>
       <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
-      {this.props.buckets.map((bucket) =>
-        <div key={bucket.get('name')}>
+      {this.props.buckets.map((bucket, i) =>
+        <div key={i} onClick={() => this.props.drag(i)}>
           <Bucket name={bucket.get('name')} assets={bucket.get('assets')} />
         </div>
       )}

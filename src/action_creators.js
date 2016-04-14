@@ -11,3 +11,10 @@ export function categorize(category) {
     category
   };
 }
+
+export function drag(bucketIndex) {
+  return {
+    type: 'DRAG',
+    bucketIndex
+  };
+}
