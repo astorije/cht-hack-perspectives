@@ -12,7 +12,7 @@ const App = React.createClass({
       <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
 
       <div className="text-center">
-        Categorize by:
+        Categorize by: &nbsp;
         <select onChange={(e) => this.props.categorize(e.target.value)}>
           <option>Select a category</option>
           <option value="function">Function</option>
