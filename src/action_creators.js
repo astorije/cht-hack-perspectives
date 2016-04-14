@@ -12,9 +12,10 @@ export function categorize(category) {
   };
 }
 
-export function drag(bucketIndex) {
+export function drag(asset, bucketIndex) {
   return {
     type: 'DRAG',
+    asset,
     bucketIndex
   };
 }

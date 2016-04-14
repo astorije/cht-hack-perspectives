@@ -23,20 +23,21 @@ function categorize(state, category) {
   );
 }
 
-function drag(state, bucketIndex) {
+function drag(state, asset, bucketIndex) {
   var unallocatedAssets = state.getIn(['unallocatedAssets', 'assets']);
 
-  if (unallocatedAssets.isEmpty()) {
-    return state;
-  }
-
-  var movableAsset = state.getIn(['unallocatedAssets', 'assets']).last();
   return state.updateIn(
     ['unallocatedAssets', 'assets'],
-    assets => assets.delete(movableAsset)
+    assets => assets.filter(a => a.id !== asset.id)
+  ).updateIn(
+    ['buckets'],
+    buckets => buckets.map(bucket => bucket.updateIn(
+      ['assets'],
+      assets => assets.filter(a => a.id !== asset.id)
+    ))
   ).updateIn(
     ['buckets', bucketIndex, 'assets'],
-    assets => assets.add(movableAsset)
+    assets => assets.add(asset)
   );
 }
 
@@ -51,7 +52,7 @@ export default function(state = new Map(), action) {
   case 'CATEGORIZE':
     return categorize(state, action.category);
   case 'DRAG':
-    return drag(state, action.bucketIndex);
+    return drag(state, action.asset, action.bucketIndex);
   case 'NAMEBUCKET':
     return nameBucket(state, action.bucketIndex, action.bucketName);
   }

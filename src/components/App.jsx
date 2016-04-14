@@ -1,4 +1,6 @@
 import React from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import Bucket from './Bucket';
 import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
@@ -6,10 +8,10 @@ import * as actionCreators from '../action_creators';
 const App = React.createClass({
   render: function () {
     return <div>
-      <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
+      <Bucket index="-1" onDrop={(item) => this.props.drag(item, -1)} name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
       {this.props.buckets.map((bucket, i) =>
-        <div key={i} onClick={() => this.props.drag(i)}>
-          <Bucket name={bucket.get('name')} assets={bucket.get('assets')} nameBucket={(n) => this.props.nameBucket(i, n)}/>
+        <div key={i}>
+          <Bucket index={i} name={bucket.get('name')} assets={bucket.get('assets')} nameBucket={(n) => this.props.nameBucket(i, n)} onDrop={(item) => this.props.drag(item, i)} />
         </div>
       )}
       Categorize by:
@@ -32,4 +34,4 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   actionCreators
-)(App);
+)(DragDropContext(HTML5Backend)(App));

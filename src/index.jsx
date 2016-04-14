@@ -18,7 +18,6 @@ store.dispatch(setState({
       {id: 'i-789', region: 'c', status: 'active'},
       {id: 'i-abc', region: 'b', status: 'inactive'},
       {id: 'i-def', region: '', status: 'active'},
-      {id: 'i-MOV', region: '', status: ''},
     ])
   },
   buckets: [
