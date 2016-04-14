@@ -14,7 +14,8 @@ const bucketTarget = {
 function collect(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
+    canDrop: monitor.canDrop(),
+    isOver: monitor.isOver(),
   };
 }
 
@@ -42,6 +43,8 @@ var Bucket = React.createClass({
 
   render: function () {
     const connectDropTarget = this.props.connectDropTarget;
+    const isOver = this.props.isOver;
+    const canDrop = this.props.canDrop;
 
     var text;
     if (!this.state.edit) {
@@ -84,12 +87,20 @@ var Bucket = React.createClass({
       </div>;
     }
 
+    var shadowAsset;
+    if (canDrop && this.props.nameBucket) {
+      shadowAsset = <div className={"asset shadow " + (isOver ? 'isOver' : '')}>
+        <i className="fa fa-plus"></i>
+      </div>;
+    }
+
     return connectDropTarget(
       <div className="bucket">
         {text}
         {this.getAssets().map(asset =>
           <Asset key={asset.id} id={asset.id} status={asset.status} />
         )}
+        {shadowAsset}
       </div>
     );
   }
