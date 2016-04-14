@@ -18,6 +18,11 @@
   margin: 5px;
   text-align: center;
   border-radius: 12px;
+  cursor: move;
+}
+
+.asset:hover {
+  opacity: .5;
 }
 
 .inactive {
