@@ -13,11 +13,11 @@ const store = createStore(reducer);
 store.dispatch(setState({
   unallocatedAssets: {
     assets: new Set([
-      {id: 'i-123', region: 'a'},
-      {id: 'i-456', region: 'b'},
-      {id: 'i-789', region: 'c'},
-      {id: 'i-abc', region: 'b'},
-      {id: 'i-def', region: ''},
+      {id: 'i-123', region: 'a', status: 'active'},
+      {id: 'i-456', region: 'b', status: 'inactive'},
+      {id: 'i-789', region: 'c', status: 'active'},
+      {id: 'i-abc', region: 'b', status: 'inactive'},
+      {id: 'i-def', region: '', status: 'active'},
     ])
   },
   buckets: [

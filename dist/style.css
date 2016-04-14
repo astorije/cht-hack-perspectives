@@ -13,3 +13,11 @@
   background-color: #ddd;
   margin: 10px;
 }
+
+.inactive {
+  background-color: red;
+}
+
+.active {
+  background-color: green;
+}

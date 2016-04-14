@@ -11,7 +11,7 @@ export default React.createClass({
     return <div className="bucket">
         <h3>{this.props.name}</h3>
       {this.getAssets().map(asset =>
-        <Asset key={asset.id} id={asset.id} />
+        <Asset key={asset.id} id={asset.id} status={asset.status} />
       )}
     </div>;
   }
