@@ -11,11 +11,16 @@ function categorize(state, category) {
   var extraBuckets = assetsToAllocate.groupBy(asset =>
     asset[category]
   ).map((k, v) => {
-    return {name: v, assets: k};
+    return new Map({name: v, assets: k});
   }).toList();
 
-  // TODO Fix bug removing existing buckets
-  return state.mergeIn(['buckets'], extraBuckets).setIn(['unallocatedAssets', 'assets'], unallocatedAssets.subtract(assetsToAllocate));
+  return state.updateIn(
+    ['buckets'],
+    buckets => buckets.concat(extraBuckets)
+  ).setIn(
+    ['unallocatedAssets', 'assets'],
+    unallocatedAssets.subtract(assetsToAllocate)
+  );
 }
 
 export default function(state = new Map(), action) {

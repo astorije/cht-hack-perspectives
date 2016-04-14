@@ -12,9 +12,9 @@ const App = React.createClass({
   render: function () {
     return <div>
       <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
-      {this.props.buckets.map((bucket, i) =>
-        <div key={i}>
-          <Bucket name={bucket.name} assets={bucket.assets} />
+      {this.props.buckets.map((bucket) =>
+        <div key={bucket.get('name')}>
+          <Bucket name={bucket.get('name')} assets={bucket.get('assets')} />
         </div>
       )}
       Categorize by:
