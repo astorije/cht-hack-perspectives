@@ -5,10 +5,10 @@
 
 .bucket {
   padding: 10px;
-  background-color: #eee;
+  background-color: #eef5fc;
   margin: 10px;
   border-radius: 10px;
-  border: 2px solid #ccc;
+  border: 2px solid #3e8fde;
 }
 
 .asset {
@@ -26,11 +26,11 @@
 }
 
 .inactive {
-  background-color: #F3C9BF;
+  background-color: #d9a790;
 }
 
 .active {
-  background-color: #C5E1A5;
+  background-color: #8fd8a0;
 }
 
 .shadow {
