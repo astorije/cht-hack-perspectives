@@ -2,10 +2,16 @@
   "name": "hackathon2",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/astorije/cht_hackathon.git"
+  },
+  "private": true,
   "main": "index.js",
   "scripts": {
     "build": "webpack",
     "server": "webpack-dev-server",
+    "start": "npm run server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
