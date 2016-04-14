@@ -88,7 +88,7 @@ var Bucket = React.createClass({
     }
 
     var shadowAsset;
-    if (canDrop && this.props.nameBucket) {
+    if (canDrop && this.props.onDrop) {
       shadowAsset = <div className={"asset shadow " + (isOver ? 'isOver' : '')}>
         <i className="fa fa-plus"></i>
       </div>;

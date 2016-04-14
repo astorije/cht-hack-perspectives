@@ -1,4 +1,4 @@
-import {Map} from 'immutable';
+import {Map, OrderedSet} from 'immutable';
 
 function setState(state, newState) {
   return state.merge(newState);
@@ -25,6 +25,14 @@ function categorize(state, category) {
 
 function drag(state, asset, bucketIndex) {
   var unallocatedAssets = state.getIn(['unallocatedAssets', 'assets']);
+
+  if (bucketIndex === undefined) {
+    bucketIndex = state.get('buckets').size;
+    state = state.updateIn(['buckets'], buckets => buckets.push(new Map({
+      name: 'Untitled group',
+      assets: new OrderedSet([])
+    })));
+  }
 
   return state.updateIn(
     ['unallocatedAssets', 'assets'],

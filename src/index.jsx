@@ -20,9 +20,7 @@ store.dispatch(setState({
       {id: 'i-def', region: '', status: 'active'},
     ])
   },
-  buckets: [
-    { name: 'Empty Group', assets: new OrderedSet([]) },
-  ]
+  buckets: []
 }));
 
 ReactDOM.render(

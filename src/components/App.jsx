@@ -8,12 +8,16 @@ import * as actionCreators from '../action_creators';
 const App = React.createClass({
   render: function () {
     return <div>
-      <Bucket index="-1" onDrop={(item) => this.props.drag(item, -1)} name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
+      <Bucket name='Unallocated Assets' assets={this.props.unallocatedAssets.get('assets')} />
       {this.props.buckets.map((bucket, i) =>
         <div key={i}>
           <Bucket index={i} name={bucket.get('name')} assets={bucket.get('assets')} nameBucket={(n) => this.props.nameBucket(i, n)} onDrop={(item) => this.props.drag(item, i)} />
         </div>
       )}
+      <div className="shadowBucket">
+        <Bucket name='New group' onDrop={(item) => this.props.drag(item)} />
+      </div>
+
       Categorize by:
       <select onChange={(e) => this.props.categorize(e.target.value)}>
         <option>Select a category</option>
