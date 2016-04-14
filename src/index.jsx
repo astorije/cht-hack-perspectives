@@ -5,14 +5,14 @@ import { Provider } from 'react-redux';
 import {createStore} from 'redux';
 import reducer from './reducers';
 
-import {Set} from 'immutable';
+import {OrderedSet} from 'immutable';
 
 import {setState} from './action_creators';
 
 const store = createStore(reducer);
 store.dispatch(setState({
   unallocatedAssets: {
-    assets: new Set([
+    assets: new OrderedSet([
       {id: 'i-123', region: 'a', status: 'active'},
       {id: 'i-456', region: 'b', status: 'inactive'},
       {id: 'i-789', region: 'c', status: 'active'},
@@ -22,7 +22,7 @@ store.dispatch(setState({
     ])
   },
   buckets: [
-    { name: 'Empty Group', assets: new Set([]) },
+    { name: 'Empty Group', assets: new OrderedSet([]) },
   ]
 }));
 
