@@ -24,8 +24,6 @@ function categorize(state, category) {
 }
 
 function drag(state, asset, bucketIndex) {
-  var unallocatedAssets = state.getIn(['unallocatedAssets', 'assets']);
-
   if (bucketIndex === undefined) {
     bucketIndex = state.get('buckets').size;
     state = state.updateIn(['buckets'], buckets => buckets.push(new Map({
