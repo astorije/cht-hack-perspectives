@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
-import FontAwesome from 'react-fontawesome';
 import {Set} from 'immutable';
 
 import Asset from './Asset';
@@ -47,44 +46,25 @@ var Bucket = React.createClass({
     const canDrop = this.props.canDrop;
 
     var text;
+    var actionButtons = [];
     if (!this.state.edit) {
+      text = this.props.name;
+
       if (this.props.nameBucket) {
-        text =
-        <div>
-          <h3>
-            {this.props.name}
-            <FontAwesome
-              name='pencil-square-o'
-              onClick={this.toggleEdit}
-              style={{margin: 5 + 'px'}} />
-          </h3>
-        </div>
-        ;
-      } else {
-        text =
-        <div>
-          <h3>
-            {this.props.name}
-          </h3>
-        </div>;
+        actionButtons.push(<i key="editButton" className="fa fa-pencil fa-fw clickable" onClick={this.toggleEdit} />);
       }
     } else {
-      text = <div>
-        <input
-          type="text"
-          defaultValue={this.props.name}
-        />
-        <FontAwesome
-          name='remove'
-          onClick={this.toggleEdit}
-          style={{margin: 5 + 'px'}}
-        />
-        <FontAwesome
-          name='check-square-o'
-          onClick={this.handleChange}
-          style={{margin: 5 + 'px'}}
-        />
-      </div>;
+      text = <input
+        type="text"
+        defaultValue={this.props.name}
+      />;
+
+      actionButtons.push(
+        <i key="cancelButton" className="fa fa-remove fa-fw clickable" onClick={this.toggleEdit} />
+      );
+      actionButtons.push(
+        <i key="saveButton" className="fa fa-check fa-fw clickable" onClick={this.handleChange} />
+      );
     }
 
     var shadowAsset;
@@ -94,21 +74,22 @@ var Bucket = React.createClass({
       </div>;
     }
 
-    var deleteButton;
     if (this.props.deleteBucket) {
-      deleteButton = <i className="fa fa-trash-o clickable delete" onClick={(i) => this.props.deleteBucket(i)}></i>;
+      actionButtons.push(
+        <i key="deleteButton" className="fa fa-trash-o fa-fw clickable" onClick={this.props.deleteBucket}></i>
+      );
     }
 
     return connectDropTarget(
       <div className="bucket">
         <div>
           <div className="inlineDiv">
-
             <div className="innerDiv">
-              {text}
-            </div>
-            <div className="innerDiv">
-              {deleteButton}
+              <h3>
+                {text}
+                &nbsp;
+                {actionButtons}
+              </h3>
             </div>
             <div style={{clear: "both"}}></div>
           </div>
